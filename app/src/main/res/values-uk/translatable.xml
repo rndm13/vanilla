@@ -24,6 +24,7 @@
   <string name="_genre">жанр</string>
   <string name="_track">композиція</string>
   <string name="_composer">композитор</string>
+  <string name="_playcount">прослуховувань</string>
   <string name="_path">шлях</string>
   <string name="_format">формат</string>
   <string name="_title">назва</string>

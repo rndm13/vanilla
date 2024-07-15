@@ -65,6 +65,7 @@ public class Song implements Comparable<Song> {
 		MediaLibrary.SongColumns.SONG_NUMBER,
 		MediaLibrary.SongColumns.DISC_NUMBER,
 		MediaLibrary.SongColumns.FLAGS,
+		MediaLibrary.SongColumns.PLAYCOUNT,
 	};
 
 	public static final String[] EMPTY_PLAYLIST_PROJECTION = {
@@ -83,6 +84,7 @@ public class Song implements Comparable<Song> {
 		MediaLibrary.SongColumns.SONG_NUMBER,
 		MediaLibrary.SongColumns.DISC_NUMBER,
 		MediaLibrary.SongColumns.FLAGS,
+		MediaLibrary.SongColumns.PLAYCOUNT,
 	};
 
 	/**
@@ -133,6 +135,10 @@ public class Song implements Comparable<Song> {
 	 * The disc number where this song is present.
 	*/
 	public int discNumber;
+	/**
+	 * Count of times the song was played
+	 */
+	public int playCount;
 
 	/**
 	 * Song flags. Currently {@link #FLAG_RANDOM} or {@link #FLAG_NO_COVER}.
@@ -192,9 +198,13 @@ public class Song implements Comparable<Song> {
 		trackNumber = cursor.getInt(8);
 		discNumber = cursor.getInt(9);
 
+
 		// Read and interpret the media library flags of this entry.
 		// There is no 1:1 mapping, so we must check each flag on its own.
 		int libraryFlags = cursor.getInt(10);
+
+		playCount = cursor.getInt(11);
+
 		if ((libraryFlags & MediaLibrary.SONG_FLAG_NO_ALBUM) != 0) {
 			// Note that we only set, never unset: the song may already
 			// have the flag set for other reasons.

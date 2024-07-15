@@ -81,7 +81,10 @@ public class TrackDetailsDialog extends DialogFragment {
 		final TextView genreView = view.findViewById(R.id.genre);
 		final TextView trackView = view.findViewById(R.id.track);
 		final TextView yearView = view.findViewById(R.id.year);
+
 		final TextView composerView = view.findViewById(R.id.composer);
+		final TextView playCountView = view.findViewById(R.id.playcount);
+
 		final TextView pathView = view.findViewById(R.id.path);
 		final TextView formatView = view.findViewById(R.id.format);
 
@@ -105,7 +108,10 @@ public class TrackDetailsDialog extends DialogFragment {
 						genreView.setText(metadata.getFirst(MediaMetadataExtractor.GENRE));
 						trackView.setText(song.getTrackAndDiscNumber());
 						yearView.setText(metadata.getFirst(MediaMetadataExtractor.YEAR));
+
 						composerView.setText(metadata.getFirst(MediaMetadataExtractor.COMPOSER));
+						playCountView.setText(String.valueOf(song.playCount));
+
 						pathView.setText(song.path);
 						formatView.setText(metadata.getFormat());
 					}

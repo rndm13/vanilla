@@ -89,6 +89,15 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 	<TableRow>
 		<TextView
+			android:text="@string/_playcount"
+			android:textColor="?overlay_foreground_color"
+			android:paddingRight="5dip"
+			android:gravity="right" />
+		<TextView android:id="@+id/playcount" android:textColor="?overlay_foreground_color" />
+	</TableRow>
+
+	<TableRow>
+		<TextView
 			android:text="@string/_path"
 			android:textColor="?overlay_foreground_color"
 			android:paddingRight="5dip"
